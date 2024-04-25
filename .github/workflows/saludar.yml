@@ -1,17 +1,23 @@
 name: Decir Hola Mundo
 
-on: [push]
+#Con esto configuramos el trigger
+on:
+  push: 
+    branches: [main, dev]
 
+#Con esto configuramos las acciones
 jobs:
   saludar:
+    #runs on configura el so sobre el que corre
     runs-on: ubuntu-latest
+    #steps dice que acciones va a hacer
     steps:
       - name: Decir Hola
         run: echo "Hola mundo de HAB"
       - name: Pausa
         run: sleep 5 
       - name: Que hora es
-        run: echo "la hora del servidor es "
+        run: echo "la hora del servidor es $(date)"
       
   despedir:
     runs-on: ubuntu-latest
