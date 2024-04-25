@@ -8,6 +8,13 @@ jobs:
     steps:
       - name: Decir Hola
         run: echo "Hola mundo de HAB"
+      - name: Pausa
+        run: sleep 5 
+      - name: Que hora es
+        run: echo "la hora del servidor es "
+      
+  despedir:
+    runs-on: ubuntu-latest
+    steps:    
       - name: Decir Chao
         run: echo "Chao mundo de HAB"
-      - run: echo "mensaje sin nombre"
