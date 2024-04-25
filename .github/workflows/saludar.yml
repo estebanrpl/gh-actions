@@ -3,7 +3,7 @@ name: Decir Hola Mundo
 #Con esto configuramos el trigger
 on:
   push: 
-    branches: [main, dev]
+    branches: [dev]
 
 #Con esto configuramos las acciones
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Decir Hola
         run: echo "Hola mundo de HAB"
       - name: Pausa
-        run: sleep 5 
+        run: sleep 1 
       - name: Que hora es
         run: echo "la hora del servidor es $(date)"
       
