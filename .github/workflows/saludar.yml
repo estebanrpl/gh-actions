@@ -39,9 +39,10 @@ jobs:
     steps:
       - name: provocar error
         run:  ls -la $GITHUB_WORKSPACE
-        continue-on-error: true
 
       - name: manejar error
         if: ${{ failure() }}
         run: echo "Error"
+        continue-on-error: true
+        
         # Con exit 1 el error detiene la action
