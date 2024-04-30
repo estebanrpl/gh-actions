@@ -38,11 +38,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: provocar error
-        run: |
-          try{
-              ls -la $GITHUB_WORKSPACE
-          } catch (error) {
-              echo error
-              exit 0 
-          }
+        run:  ls -la $GITHUB_WORKSPACE
+        continue-on-error: true
         # Con exit 1 el error detiene la action
