@@ -30,5 +30,19 @@ jobs:
     steps:
       - name: mostrar secreto
         run: echo ${{secrets.MI_SECRET}}
+      
       - name: mostrar variable
         run: echo ${{ vars.MI_VARIABLE}}
+  
+  errores:
+    runs-on: windows-latest
+    steps:
+      - name: provocar error
+        run: |
+          try{
+              ls -la $GITHUB_WORKSPACE
+          } catch (error) {
+              echo error
+              exit 0 
+          }
+        # Con exit 1 el error detiene la action
