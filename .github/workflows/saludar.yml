@@ -1,7 +1,5 @@
 name: Decir Hola Mundo
 
-env:
-  U_VERSION: ubuntu-latest
 #Con esto configuramos el trigger
 on:
   push: 
@@ -11,7 +9,7 @@ on:
 jobs:
   saludar:
     #runs on configura el so sobre el que corre
-    runs-on: $U_VERSION
+    runs-on: ubuntu-latest
     #steps dice que acciones va a hacer
     steps:
       - name: Decir Hola
@@ -20,21 +18,21 @@ jobs:
         run: sleep 1
 
   darHora:
-    runs-on: $U_VERSION
+    runs-on: ubuntu-latest
     needs: saludar
     steps:
       - name: Que hora es
         run: echo "la hora del servidor es $(date)"
     
   despedir:
-    runs-on: $U_VERSION
+    runs-on: ubuntu-latest
     needs: darHora #Con needs podemos crear dependencias para que no se ejecute un job hasta que no se cumplan
     steps:    
       - name: Decir Chao
         run: echo "Chao mundo de HAB"
 
   acciones:
-    runs-on: $U_VERSION
+    runs-on: ubuntu-latest
     steps:
       - name: mostrar secreto
         run: echo ${{secrets.MI_SECRET}}
