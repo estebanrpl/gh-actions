@@ -3,7 +3,7 @@ name: Decir Hola Mundo
 #Con esto configuramos el trigger
 on:
   push: 
-    branches: [dev]
+    branches: [main]
 
 #Con esto configuramos las acciones
 jobs:
@@ -24,3 +24,9 @@ jobs:
     steps:    
       - name: Decir Chao
         run: echo "Chao mundo de HAB"
+
+  secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mostrar secreto
+        run: echo ${{secrets.MI_SECRET}}
